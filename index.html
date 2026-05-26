@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臭皮匠出行 - 广州珠海澳门之旅</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 飘浮装饰 -->
+  <div class="floating-decor decor-1">🎈</div>
+  <div class="floating-decor decor-2">✨</div>
+  <div class="floating-decor decor-3">🌈</div>
+  <div class="floating-decor decor-4">🌟</div>
+  
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="logo">
+      <img src="小人1-JIANG.jpg" alt="Jiang" class="logo-avatar">
+      <h1>臭皮匠出行</h1>
+      <img src="小人2-SU.webp" alt="Su" class="logo-avatar">
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" data-tab="home">🏠 首页</button>
+      <button class="nav-btn" data-tab="plan">📝 行程</button>
+      <button class="nav-btn" data-tab="food">🍽️ 美食</button>
+      <button class="nav-btn" data-tab="shopping">🛍️ 购物</button>
+      <button class="nav-btn" data-tab="diary">📔 日记</button>
+    </nav>
+  </header>
+
+  <!-- 首页内容 -->
+  <section id="home" class="tab-content active">
+    <div class="hero">
+      <div class="hero-characters">
+          <div class="character-card jiang">
+            <div class="speech-bubble jiang-bubble">
+              <p class="bubble-text"></p>
+              <div class="bubble-tail"></div>
+            </div>
+            <img src="小人1-JIANG.jpg" alt="Jiang" class="character-img">
+            <div class="character-name">Jiang</div>
+            <div class="character-mood">😊 兴奋中</div>
+          </div>
+          <div class="hero-text">
+            <h2>🎉 广州 · 珠海 · 澳门 之旅 🎉</h2>
+            <p class="date-range">2024年6月8日 - 6月12日</p>
+            <p class="subtitle">一场chill又美味的旅行即将开始！</p>
+            <div class="cities">
+              <span class="city-tag guangzhou">广州</span>
+              <span class="city-tag zhuhai">珠海</span>
+              <span class="city-tag macau">澳门</span>
+            </div>
+          </div>
+          <div class="character-card su">
+            <div class="speech-bubble su-bubble">
+              <p class="bubble-text"></p>
+              <div class="bubble-tail"></div>
+            </div>
+            <img src="小人2-SU.webp" alt="Su" class="character-img">
+            <div class="character-name">Su</div>
+            <div class="character-mood">🤤 想恰饭</div>
+          </div>
+        </div>
+      
+      <div class="countdown">
+        <div class="countdown-item">
+          <span class="countdown-num" id="days">0</span>
+          <span class="countdown-label">天</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="hours">0</span>
+          <span class="countdown-label">时</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="minutes">0</span>
+          <span class="countdown-label">分</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="seconds">0</span>
+          <span class="countdown-label">秒</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 准备去吃的美食 -->
+    <div class="food-plan-section" id="foodPlanSection">
+      <div class="section-header">
+        <h3>🍽️ 准备去吃的美食</h3>
+        <span class="plan-count" id="planCount">0</span>
+      </div>
+      <div class="food-plan-list" id="foodPlanList">
+        <div class="empty-state">
+          <div class="empty-icon">🥢</div>
+          <p>还没有选择准备去吃的美食</p>
+          <p class="empty-hint">点击美食卡片上的「准备去吃」按钮添加</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-info">
+          <div class="stat-number">5</div>
+          <div class="stat-label">旅行天数</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🍜</div>
+        <div class="stat-info">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">必吃美食</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📍</div>
+        <div class="stat-info">
+          <div class="stat-number">20</div>
+          <div class="stat-label">游玩景点</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🚶</div>
+        <div class="stat-info">
+          <div class="stat-number">轻松</div>
+          <div class="stat-label">旅行节奏</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 行程进度追踪 -->
+    <div class="progress-section">
+      <h3>🎯 行程进度</h3>
+      <div class="progress-bar-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-info">
+          <span id="progressText">已完成 0 / 20 个活动</span>
+        </div>
+      </div>
+      
+      <!-- 成就徽章 -->
+      <div class="achievements">
+        <h4>🏆 成就徽章</h4>
+        <div class="achievement-grid">
+          <div class="achievement-card" data-achievement="firstCheck" title="迈出第一步">
+            <div class="achievement-icon">🚩</div>
+            <div class="achievement-name">首次打卡</div>
+          </div>
+          <div class="achievement-card" data-achievement="halfDone" title="完成一半">
+            <div class="achievement-icon">✨</div>
+            <div class="achievement-name">半程英雄</div>
+          </div>
+          <div class="achievement-card" data-achievement="fullDone" title="全部完成">
+            <div class="achievement-icon">🏅</div>
+            <div class="achievement-name">旅行达人</div>
+          </div>
+          <div class="achievement-card" data-achievement="foodie" title="尝遍美食">
+            <div class="achievement-icon">🍔</div>
+            <div class="achievement-name">吃货专家</div>
+          </div>
+          <div class="achievement-card" data-achievement="photo" title="记录美好">
+            <div class="achievement-icon">📸</div>
+            <div class="achievement-name">摄影大师</div>
+          </div>
+          <div class="achievement-card" data-achievement="diary" title="写下回忆">
+            <div class="achievement-icon">📝</div>
+            <div class="achievement-name">日记作家</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 小红书热评 -->
+    <div class="hot-comments">
+      <div class="hot-header">
+        <h3>🔥 小红书热评</h3>
+        <span class="comment-count">共 2,341 条评论</span>
+      </div>
+      <div class="comment-input">
+        <img src="小人1-JIANG.jpg" alt="我的头像" class="my-avatar">
+        <input type="text" placeholder="分享你的旅行体验..." class="comment-field" id="newComment">
+        <button class="comment-submit">发布</button>
+      </div>
+      <div class="comment-list" id="commentList">
+        <div class="comment-item">
+          <img src="1.png" alt="用户头像" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-user">Amy</span>
+              <span class="comment-time">2小时前</span>
+            </div>
+            <div class="comment-text">安德鲁饼店的蛋挞太绝了！虽然11mop一个，但值得一试！外皮酥脆，内里奶香浓郁！😍</div>
+            <div class="comment-actions">
+              <button class="action-btn like-btn" data-likes="18">👍 18</button>
+              <button class="action-btn reply-btn">💬 回复</button>
+            </div>
+          </div>
+        </div>
+        <div class="comment-item">
+          <img src="2.png" alt="用户头像" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-user">我又可以了</span>
+              <span class="comment-time">5小时前</span>
+            </div>
+            <div class="comment-text">官也街推荐阿根廷牛杂，比老day好吃！贤记鸡蛋仔记得先下单，要等挺久的~</div>
+            <div class="comment-actions">
+              <button class="action-btn like-btn" data-likes="50">👍 50</button>
+              <button class="action-btn reply-btn">💬 回复</button>
+            </div>
+          </div>
+        </div>
+        <div class="comment-item">
+          <img src="3.png" alt="用户头像" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-user">田田</span>
+              <span class="comment-time">1天前</span>
+            </div>
+            <div class="comment-text">葡京免税店大牌墨镜两件六折！太划算了！买了两幅才花了2000+！</div>
+            <div class="comment-actions">
+              <button class="action-btn like-btn" data-likes="6">👍 6</button>
+              <button class="action-btn reply-btn">💬 回复</button>
+            </div>
+          </div>
+        </div>
+        <div class="comment-item">
+          <img src="4.png" alt="用户头像" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-user">吃货小王</span>
+              <span class="comment-time">1天前</span>
+            </div>
+            <div class="comment-text">点都德的虾饺皇真的绝了！虾仁超大颗，一口下去超满足！必点！🦐</div>
+            <div class="comment-actions">
+              <button class="action-btn like-btn" data-likes="128">👍 128</button>
+              <button class="action-btn reply-btn">💬 回复</button>
+            </div>
+          </div>
+        </div>
+        <div class="comment-item">
+          <img src="5.jpg" alt="用户头像" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-user">旅行达人</span>
+              <span class="comment-time">2天前</span>
+            </div>
+            <div class="comment-text">珠海情侣路骑行太舒服了！海风习习，风景超美，推荐租辆自行车慢慢逛~</div>
+            <div class="comment-actions">
+              <button class="action-btn like-btn" data-likes="89">👍 89</button>
+              <button class="action-btn reply-btn">💬 回复</button>
+            </div>
+          </div>
+        </div>
+        <div class="comment-item">
+          <img src="6.png" alt="用户头像" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-user">澳门攻略君</span>
+              <span class="comment-time">2天前</span>
+            </div>
+            <div class="comment-text">威尼斯人里面的人造天空拍照真的绝了！感觉像在意大利度假一样~</div>
+            <div class="comment-actions">
+              <button class="action-btn like-btn" data-likes="156">👍 156</button>
+              <button class="action-btn reply-btn">💬 回复</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="load-more">查看更多评论 →</button>
+    </div>
+  </section>
+
+  <!-- 行程规划 -->
+  <section id="plan" class="tab-content">
+    <div class="plan-header">
+      <h2>📝 我的旅行行程</h2>
+      <p>点击日期查看详细安排，支持修改行程</p>
+      <button class="add-activity-btn" id="addActivityBtn">➕ 添加行程</button>
+    </div>
+    
+    <div class="day-tabs">
+      <button class="day-tab active" data-day="1">D1</button>
+      <button class="day-tab" data-day="2">D2</button>
+      <button class="day-tab" data-day="3">D3</button>
+      <button class="day-tab" data-day="4">D4</button>
+      <button class="day-tab" data-day="5">D5</button>
+    </div>
+    
+    <div class="timeline" id="timeline">
+      <!-- Day 1: 6月8日 -->
+      <div class="day-card active" data-day="1">
+        <div class="day-header">
+          <div class="day-badge">
+            <span class="day-number">8</span>
+            <span class="day-week">周六</span>
+          </div>
+          <div class="day-location">
+            <span class="location-icon">🏙️</span>
+            <span>广州</span>
+          </div>
+          <div class="weather">☀️ 晴 32°C</div>
+        </div>
+        <div class="day-content">
+          <div class="activity" data-activity="1">
+            <div class="time">12:55</div>
+            <div class="activity-info">
+              <div class="activity-title">✈️ 抵达广州白云机场</div>
+              <div class="activity-desc">乘坐飞机抵达广州，开启美食之旅！</div>
+              <div class="activity-tips">🎒 机场大巴到市区约45分钟，地铁3号线直达</div>
+              <div class="transport-options">
+                <span class="transport">🚇 地铁3号线：机场南→体育西路，约45分钟，¥7</span>
+                <span class="transport">🚌 机场大巴：约50分钟，¥22</span>
+                <span class="transport">🚕 打车：约30分钟，¥100-150</span>
+              </div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="1">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="1">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="2">
+            <div class="time">14:30</div>
+            <div class="activity-info">
+              <div class="activity-title">🚇 前往市区</div>
+              <div class="activity-desc">地铁3号线直达市区，入住酒店稍作休息</div>
+              <div class="activity-tips">🏨 推荐住北京路/上下九附近，出行方便</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="3">
+            <div class="time">17:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🍵 上下九步行街</div>
+              <div class="activity-desc">逛西关风情街，感受老广州韵味</div>
+              <div class="activity-tips">👀 推荐逛宝华路，老字号集中</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="4">
+            <div class="time">19:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🍲 陶陶居晚餐</div>
+              <div class="activity-desc">品尝正宗广州早茶（晚茶）体验</div>
+              <div class="activity-tips">🦐 必点：虾饺、干蒸烧卖、奶黄包</div>
+            </div>
+            <button class="check-btn" data-checked="false">✅</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2: 6月9日 -->
+      <div class="day-card" data-day="2">
+        <div class="day-header">
+          <div class="day-badge">
+            <span class="day-number">9</span>
+            <span class="day-week">周日</span>
+          </div>
+          <div class="day-location">
+            <span class="location-icon">🌊</span>
+            <span>珠海 → 澳门</span>
+          </div>
+          <div class="weather">🌤️ 多云 28°C</div>
+        </div>
+        <div class="day-content">
+          <div class="activity" data-activity="1">
+            <div class="time">09:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🚄 广州南 → 珠海</div>
+              <div class="activity-desc">约1小时车程，前往浪漫珠海</div>
+              <div class="activity-tips">🎫 提前在12306购票，约70元</div>
+              <div class="transport-options">
+                <span class="transport">🚄 高铁：广州南→珠海站，约59分钟，¥70，距离116km</span>
+                <span class="transport">🚌 大巴：省客运站→珠海拱北，约2.5小时，¥65</span>
+                <span class="transport">🚗 自驾：广澳高速，约1.5小时，过路费约60元</span>
+              </div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="2">
+            <div class="time">10:30</div>
+            <div class="activity-info">
+              <div class="activity-title">🌅 情侣路骑行</div>
+              <div class="activity-desc">沿珠海最美海岸线骑行，看渔女雕像</div>
+              <div class="activity-tips">🚲 共享单车随处可见，骑行约1小时</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="3">
+            <div class="time">12:30</div>
+            <div class="activity-info">
+              <div class="activity-title">🦐 湾仔海鲜街</div>
+              <div class="activity-desc">新鲜海鲜大餐，现捞现做</div>
+              <div class="activity-tips">💡 货比三家，记得砍价！</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="4">
+            <div class="time">14:30</div>
+            <div class="activity-info">
+              <div class="activity-title">🚢 前往澳门</div>
+              <div class="activity-desc">横琴口岸过关，开启澳门之旅</div>
+              <div class="activity-tips">🪪 带好港澳通行证，提前换澳门币</div>
+              <div class="transport-options">
+                <span class="transport">🌉 横琴口岸：24小时通关，智能刷脸约20秒，距离澳门氹仔最近</span>
+                <span class="transport">🚶 步行过关：免费，过关后有发财车到各大赌场</span>
+                <span class="transport">🚌 珠海公交K10/K11直达横琴口岸，约40分钟</span>
+              </div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="5">
+            <div class="time">16:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🕌 澳门半岛漫步</div>
+              <div class="activity-desc">大三巴牌坊、议事亭前地、玫瑰圣母堂</div>
+              <div class="activity-tips">📸 大三巴最佳拍照时间：下午4-5点</div>
+              <div class="transport-options">
+                <span class="transport">🚌 澳门公交：3/10/10A路可达，票价MOP6</span>
+                <span class="transport">🚶 步行：从新马路步行到大三巴约15分钟</span>
+                <span class="transport">🚕 打车：澳门半岛内约MOP30-50</span>
+              </div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="6">
+            <div class="time">19:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🍝 官也街美食</div>
+              <div class="activity-desc">猪扒包、木糠布甸、蛋挞，应有尽有</div>
+              <div class="activity-tips">🔥 推荐：安德鲁蛋挞、贤记鸡蛋仔、阿根廷牛杂</div>
+            </div>
+            <button class="check-btn" data-checked="false">✅</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3: 6月10日 -->
+      <div class="day-card" data-day="3">
+        <div class="day-header">
+          <div class="day-badge">
+            <span class="day-number">10</span>
+            <span class="day-week">周一</span>
+          </div>
+          <div class="day-location">
+            <span class="location-icon">🎰</span>
+            <span>澳门 → 珠海 → 广州</span>
+          </div>
+          <div class="weather">☀️ 晴 30°C</div>
+        </div>
+        <div class="day-content">
+          <div class="activity" data-activity="1">
+            <div class="time">09:00</div>
+            <div class="activity-info">
+              <div class="activity-title">☕ 澳门早茶</div>
+              <div class="activity-desc">体验澳门特色早茶，悠闲开启新一天</div>
+              <div class="activity-tips">🍵 推荐：凤城酒家、陶陶居澳门分店</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="2">
+            <div class="time">11:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🏰 澳门威尼斯人</div>
+              <div class="activity-desc">体验大运河购物中心，打卡人造天空</div>
+              <div class="activity-tips">🛶 可以坐贡多拉船，拍照超美</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="3">
+            <div class="time">14:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🍦 安德鲁蛋挞</div>
+              <div class="activity-desc">品尝澳门最著名的蛋挞</div>
+              <div class="activity-tips">⚠️ 蛋挞一个就够，很甜！</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="4">
+            <div class="time">15:30</div>
+            <div class="activity-info">
+              <div class="activity-title">🚢 返回珠海</div>
+              <div class="activity-desc">经横琴口岸返回珠海</div>
+              <div class="activity-tips">🛒 可以在珠海买点特产</div>
+              <div class="transport-options">
+                <span class="transport">🌉 横琴口岸：24小时通关，人流量较少，过关快</span>
+                <span class="transport">🚌 横琴口岸→珠海市区：公交K10，约40分钟，¥1</span>
+                <span class="transport">🚕 打车到珠海站：约30分钟，¥60-80</span>
+              </div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="5">
+            <div class="time">18:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🚄 珠海 → 广州</div>
+              <div class="activity-desc">返回广州，准备接下来的美食探索</div>
+              <div class="activity-tips">🍽️ 晚上可以去吃潮汕砂锅粥</div>
+              <div class="transport-options">
+                <span class="transport">🚄 高铁：珠海→广州南，约59分钟，¥70，距离116km</span>
+                <span class="transport">🚌 大巴：珠海拱北→省客运站，约2.5小时，¥65</span>
+                <span class="transport">🚗 自驾：广澳高速，约1.5小时，过路费约60元</span>
+              </div>
+            </div>
+            <button class="check-btn" data-checked="false">✅</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4: 6月11日 -->
+      <div class="day-card" data-day="4">
+        <div class="day-header">
+          <div class="day-badge">
+            <span class="day-number">11</span>
+            <span class="day-week">周二</span>
+          </div>
+          <div class="day-location">
+            <span class="location-icon">🍜</span>
+            <span>广州</span>
+          </div>
+          <div class="weather">🌧️ 小雨 26°C</div>
+        </div>
+        <div class="day-content">
+          <div class="activity" data-activity="1">
+            <div class="time">上午</div>
+            <div class="activity-info">
+              <div class="activity-title">🛌 自由安排</div>
+              <div class="activity-desc">睡个懒觉，享受悠闲时光</div>
+              <div class="activity-tips">💤 难得的休息日，好好放松</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="2">
+            <div class="time">12:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🍤 点都德午餐</div>
+              <div class="activity-desc">品尝正宗粤式点心</div>
+              <div class="activity-tips">🦐 推荐：金牌虾饺皇、荔湾艇仔粥</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="3">
+            <div class="time">14:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🌸 沙面岛</div>
+              <div class="activity-desc">漫步欧陆风情小岛，拍照打卡</div>
+              <div class="activity-tips">📸 岛上有很多欧式建筑，适合拍照</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="4">
+            <div class="time">16:30</div>
+            <div class="activity-info">
+              <div class="activity-title">☕ 永庆坊下午茶</div>
+              <div class="activity-desc">网红打卡地，品广式糖水</div>
+              <div class="activity-tips">🍧 推荐吃：芝麻糊、杏仁糊、双皮奶</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="5">
+            <div class="time">19:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🔥 北京路步行街</div>
+              <div class="activity-desc">逛千年古道，寻觅地道小吃</div>
+              <div class="activity-tips">🍢 推荐：牛杂、钵仔糕、鱼蛋</div>
+            </div>
+            <button class="check-btn" data-checked="false">✅</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 5: 6月12日 -->
+      <div class="day-card" data-day="5">
+        <div class="day-header">
+          <div class="day-badge">
+            <span class="day-number">12</span>
+            <span class="day-week">周三</span>
+          </div>
+          <div class="day-location">
+            <span class="location-icon">✈️</span>
+            <span>广州</span>
+          </div>
+          <div class="weather">☀️ 晴 31°C</div>
+        </div>
+        <div class="day-content">
+          <div class="activity" data-activity="1">
+            <div class="time">09:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🥢 广州酒家早茶</div>
+              <div class="activity-desc">最后一次体验广式早茶，回味无穷</div>
+              <div class="activity-tips">😋 必点：叉烧包、流沙包、蛋挞</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="2">
+            <div class="time">11:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🛍️ 天河城购物</div>
+              <div class="activity-desc">买买买，带走广州特产</div>
+              <div class="activity-tips">🎁 推荐买：鸡仔饼、杏仁饼、陈皮</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="3">
+            <div class="time">14:00</div>
+            <div class="activity-info">
+              <div class="activity-title">🚇 前往机场</div>
+              <div class="activity-desc">提前抵达机场，准备返程</div>
+              <div class="activity-tips">⏰ 提前3小时到机场，避免延误</div>
+            </div>
+            <div class="activity-actions">
+              <button class="check-btn" data-checked="false">✅</button>
+              <button class="edit-btn" data-day="1" data-activity="X">✏️</button>
+              <button class="delete-btn" data-day="1" data-activity="X">🗑️</button>
+            </div>
+          </div>
+          <div class="activity" data-activity="4">
+            <div class="time">16:55</div>
+            <div class="activity-info">
+              <div class="activity-title">✈️ 返程回家</div>
+              <div class="activity-desc">带着满满的回忆和美食回味返程</div>
+              <div class="activity-tips">📸 记得拍照留念哦！</div>
+            </div>
+            <button class="check-btn" data-checked="false">✅</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 美食推荐 -->
+  <section id="food" class="tab-content">
+    <div class="food-header">
+      <h2>🍽️ 美食攻略</h2>
+      <p>三地必吃美食大合集</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="guangzhou">广州</button>
+      <button class="filter-btn" data-filter="zhuhai">珠海</button>
+      <button class="filter-btn" data-filter="macau">澳门</button>
+    </div>
+
+    <div class="food-grid">
+      <!-- 广州美食 -->
+      <div class="food-card" data-city="guangzhou">
+        <div class="food-rating">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <span class="rating-num">4.9</span>
+          <span class="review-count">(1,234条评价)</span>
+        </div>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=shrimp%20dumplings%20har%20gow%20Cantonese%20dim%20sum%20delicious%20food%20photography&image_size=portrait_4_3" alt="虾饺" class="food-img">
+        <div class="food-info">
+          <h3>虾饺</h3>
+          <p>晶莹剔透的外皮包裹着鲜嫩虾仁，广州早茶必点！</p>
+          <div class="food-tags">
+            <span>早茶</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：点都德、陶陶居</div>
+          <div class="food-reviews">
+            <div class="review-item">
+              <span class="review-user">吃货小王</span>
+              <span class="review-text">虾仁超大颗，一口下去超满足！</span>
+            </div>
+          </div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=siu%20mai%20shrimp%20pork%20dumplings%20Cantonese%20dim%20sum%20food%20photography&image_size=portrait_4_3" alt="干蒸烧卖" class="food-img">
+        <div class="food-info">
+          <h3>干蒸烧卖</h3>
+          <p>猪肉与鲜虾的完美结合，一口一个超满足</p>
+          <div class="food-tags">
+            <span>早茶</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：广州酒家</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Portuguese%20egg%20tart%20crispy%20pastry%20custard%20dessert%20food%20photography&image_size=portrait_4_3" alt="蛋挞" class="food-img">
+        <div class="food-info">
+          <h3>蛋挞</h3>
+          <p>酥皮松脆，蛋心嫩滑，下午茶绝佳选择</p>
+          <div class="food-tags">
+            <span>甜点</span>
+            <span>下午茶</span>
+          </div>
+          <div class="food-recommend">推荐：莲香楼</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cantonese%20cheong%20fun%20rice%20noodle%20roll%20with%20shrimp%20food%20photography&image_size=portrait_4_3" alt="肠粉" class="food-img">
+        <div class="food-info">
+          <h3>肠粉</h3>
+          <p>米浆蒸制，嫩滑爽口，配上特制酱油</p>
+          <div class="food-tags">
+            <span>早餐</span>
+            <span>地道</span>
+          </div>
+          <div class="food-recommend">推荐：华辉拉肠</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=wonton%20noodle%20soup%20Cantonese%20style%20with%20shrimp%20wonton%20food%20photography&image_size=portrait_4_3" alt="云吞面" class="food-img">
+        <div class="food-info">
+          <h3>云吞面</h3>
+          <p>竹升面劲道，云吞鲜美，汤底浓郁</p>
+          <div class="food-tags">
+            <span>主食</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：池记云吞面</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Teochew%20clay%20pot%20porridge%20with%20seafood%20congee%20food%20photography&image_size=portrait_4_3" alt="潮汕砂锅粥" class="food-img">
+        <div class="food-info">
+          <h3>潮汕砂锅粥</h3>
+          <p>绵密粥底配新鲜海鲜，暖心暖胃</p>
+          <div class="food-tags">
+            <span>主食</span>
+            <span>推荐</span>
+          </div>
+          <div class="food-recommend">推荐：云腾砂锅粥</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=beef%20offal%20bowl%20Chinese%20street%20food%20with%20radish%20soup%20food%20photography&image_size=portrait_4_3" alt="牛杂" class="food-img">
+        <div class="food-info">
+          <h3>西关牛杂</h3>
+          <p>萝卜牛杂，汤汁浓郁，街边美味</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>地道</span>
+          </div>
+          <div class="food-recommend">推荐：珍珍小食店</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 珠海美食 -->
+      <div class="food-card" data-city="zhuhai">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fresh%20seafood%20platter%20with%20shrimp%20crab%20lobster%20Chinese%20restaurant%20food%20photography&image_size=portrait_4_3" alt="海鲜大餐" class="food-img">
+        <div class="food-info">
+          <h3>海鲜大餐</h3>
+          <p>湾仔海鲜街现捞现做，新鲜无比</p>
+          <div class="food-tags">
+            <span>海鲜</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：湾仔海鲜街</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="zhuhai">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=grilled%20oysters%20with%20garlic%20vermicelli%20Chinese%20seafood%20food%20photography&image_size=portrait_4_3" alt="横琴蚝" class="food-img">
+        <div class="food-info">
+          <h3>横琴蚝</h3>
+          <p>珠海特产，肉质肥美，蒜蓉清蒸最佳</p>
+          <div class="food-tags">
+            <span>海鲜</span>
+            <span>特产</span>
+          </div>
+          <div class="food-recommend">推荐：横琴蚝生态园</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="zhuhai">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=hairy%20crab%20Chinese%20style%20steamed%20with%20ginger%20scallion%20food%20photography&image_size=portrait_4_3" alt="斗门重壳蟹" class="food-img">
+        <div class="food-info">
+          <h3>斗门重壳蟹</h3>
+          <p>蟹中珍品，肉质饱满，味道鲜美</p>
+          <div class="food-tags">
+            <span>海鲜</span>
+            <span>特色</span>
+          </div>
+          <div class="food-recommend">推荐：斗门海鲜餐厅</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 澳门美食 -->
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Macau%20Portuguese%20egg%20tart%20crispy%20golden%20pastry%20dessert%20food%20photography&image_size=portrait_4_3" alt="安德鲁蛋挞" class="food-img">
+        <div class="food-info">
+          <h3>安德鲁蛋挞</h3>
+          <p>澳门最有名的蛋挞，酥皮酥脆，蛋奶香浓</p>
+          <div class="food-tags">
+            <span>甜点</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：安德鲁饼店</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Macau%20pork%20chop%20bun%20crispy%20bread%20sandwich%20food%20photography&image_size=portrait_4_3" alt="猪扒包" class="food-img">
+        <div class="food-info">
+          <h3>猪扒包</h3>
+          <p>厚实猪扒配松软面包，澳门街头经典</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：大利来记</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Macau%20serradura%20wood%20sawdust%20pudding%20dessert%20cream%20biscuit%20food%20photography&image_size=portrait_4_3" alt="木糠布甸" class="food-img">
+        <div class="food-info">
+          <h3>木糠布甸</h3>
+          <p>澳门特色甜品，饼干碎配奶油，口感丰富</p>
+          <div class="food-tags">
+            <span>甜点</span>
+            <span>特色</span>
+          </div>
+          <div class="food-recommend">推荐：义顺牛奶公司</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Macau%20water%20crab%20congee%20porridge%20seafood%20Chinese%20style%20food%20photography&image_size=portrait_4_3" alt="水蟹粥" class="food-img">
+        <div class="food-info">
+          <h3>水蟹粥</h3>
+          <p>鲜甜蟹肉融入绵密粥底，暖心暖胃</p>
+          <div class="food-tags">
+            <span>主食</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：诚昌饭店</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Macau%20Portuguese%20chicken%20curry%20coconut%20milk%20Asian%20food%20photography&image_size=portrait_4_3" alt="葡国鸡" class="food-img">
+        <div class="food-info">
+          <h3>葡国鸡</h3>
+          <p>澳门特色菜，椰奶咖喱配鸡肉，风味独特</p>
+          <div class="food-tags">
+            <span>主菜</span>
+            <span>特色</span>
+          </div>
+          <div class="food-recommend">推荐：小飞象葡国餐厅</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Hong%20Kong%20egg%20waffle%20golden%20crispy%20street%20food%20snack%20food%20photography&image_size=portrait_4_3" alt="鸡蛋仔" class="food-img">
+        <div class="food-info">
+          <h3>贤记鸡蛋仔</h3>
+          <p>外脆内软，蛋香浓郁，官也街必吃</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>推荐</span>
+          </div>
+          <div class="food-recommend">推荐：贤记鸡蛋仔</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=beef%20offal%20bowl%20Chinese%20style%20with%20radish%20carrots%20vegetables%20street%20food%20delicious&image_size=portrait_4_3" alt="阿根廷牛杂" class="food-img">
+        <div class="food-info">
+          <h3>阿根廷牛杂</h3>
+          <p>官也街网红牛杂，牛肺牛肚超大份</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>网红</span>
+          </div>
+          <div class="food-recommend">推荐：阿根廷牛杂（官也街店）</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 新增广州美食 -->
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食1.jpg" alt="布拉肠" class="food-img">
+        <div class="food-info">
+          <h3>布拉肠</h3>
+          <p>薄如蝉翼的米浆皮包裹鲜嫩馅料，淋上特制酱油</p>
+          <div class="food-tags">
+            <span>早餐</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：银记肠粉</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食2.jpg" alt="艇仔粥" class="food-img">
+        <div class="food-info">
+          <h3>艇仔粥</h3>
+          <p>旧时珠江小艇上售卖的粥品，配料丰富鲜甜</p>
+          <div class="food-tags">
+            <span>主食</span>
+            <span>传统</span>
+          </div>
+          <div class="food-recommend">推荐：伍湛记</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食3.jpg" alt="云吞面" class="food-img">
+        <div class="food-info">
+          <h3>云吞面</h3>
+          <p>竹升手打面搭配鲜虾云吞，汤底鲜香浓郁</p>
+          <div class="food-tags">
+            <span>主食</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：麦奀云吞面世家</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食4.jpg" alt="烧腊" class="food-img">
+        <div class="food-info">
+          <h3>烧腊</h3>
+          <p>脆皮烧鹅、蜜汁叉烧，色泽诱人香气四溢</p>
+          <div class="food-tags">
+            <span>主菜</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：炳胜品味</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食5.jpg" alt="叉烧包" class="food-img">
+        <div class="food-info">
+          <h3>叉烧包</h3>
+          <p>松软外皮包裹蜜汁叉烧，早茶必点</p>
+          <div class="food-tags">
+            <span>点心</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：广州酒家</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食6.jpg" alt="豉油皇凤爪" class="food-img">
+        <div class="food-info">
+          <h3>豉油皇凤爪</h3>
+          <p>软糯脱骨，浓郁豉油香味，早茶经典</p>
+          <div class="food-tags">
+            <span>点心</span>
+            <span>必点</span>
+          </div>
+          <div class="food-recommend">推荐：陶陶居</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="guangzhou">
+        <img src="广州美食7.jpg" alt="马蹄糕" class="food-img">
+        <div class="food-info">
+          <h3>马蹄糕</h3>
+          <p>清甜爽口，Q弹有嚼劲，传统粤式甜点</p>
+          <div class="food-tags">
+            <span>甜点</span>
+            <span>传统</span>
+          </div>
+          <div class="food-recommend">推荐：莲香楼</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 新增澳门美食 -->
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食1.jpg" alt="葡挞" class="food-img">
+        <div class="food-info">
+          <h3>葡挞</h3>
+          <p>澳门标志性甜品，酥脆挞皮搭配嫩滑蛋挞心</p>
+          <div class="food-tags">
+            <span>甜点</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：安德鲁饼店</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食2.jpg" alt="猪扒包" class="food-img">
+        <div class="food-info">
+          <h3>猪扒包</h3>
+          <p>外酥内软的面包夹着厚实多汁的猪排</p>
+          <div class="food-tags">
+            <span>主食</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：大利来记</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食3.jpg" alt="木糠布甸" class="food-img">
+        <div class="food-info">
+          <h3>木糠布甸</h3>
+          <p>奶油与饼干碎的完美结合，冰凉可口</p>
+          <div class="food-tags">
+            <span>甜点</span>
+            <span>葡式</span>
+          </div>
+          <div class="food-recommend">推荐：义顺牛奶公司</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食4.jpg" alt="马介休球" class="food-img">
+        <div class="food-info">
+          <h3>马介休球</h3>
+          <p>葡式传统小吃，鳕鱼泥炸成的金黄小球</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>葡式</span>
+          </div>
+          <div class="food-recommend">推荐：小飞象葡国餐厅</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食5.jpg" alt="沙嗲牛肉" class="food-img">
+        <div class="food-info">
+          <h3>沙嗲牛肉</h3>
+          <p>南洋风味，牛肉串配沙嗲酱，香气扑鼻</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>特色</span>
+          </div>
+          <div class="food-recommend">推荐：街边小摊</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食6.jpg" alt="咖喱牛腩" class="food-img">
+        <div class="food-info">
+          <h3>咖喱牛腩</h3>
+          <p>浓郁咖喱配软烂牛腩，配饭绝佳</p>
+          <div class="food-tags">
+            <span>主菜</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：黄枝记粥面</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食7.jpg" alt="墨鱼丸" class="food-img">
+        <div class="food-info">
+          <h3>墨鱼丸</h3>
+          <p>弹牙爽口，真材实料的海鲜丸子</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>推荐</span>
+          </div>
+          <div class="food-recommend">推荐：街边小吃店</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食8.jpg" alt="杏仁饼" class="food-img">
+        <div class="food-info">
+          <h3>杏仁饼</h3>
+          <p>澳门手信首选，杏仁香浓口感细腻</p>
+          <div class="food-tags">
+            <span>手信</span>
+            <span>必买</span>
+          </div>
+          <div class="food-recommend">推荐：钜记手信</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食9.jpg" alt="凤凰卷" class="food-img">
+        <div class="food-info">
+          <h3>凤凰卷</h3>
+          <p>酥脆蛋卷，蛋香浓郁，送礼佳品</p>
+          <div class="food-tags">
+            <span>手信</span>
+            <span>传统</span>
+          </div>
+          <div class="food-recommend">推荐：咀香园</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食10.jpg" alt="老婆饼" class="food-img">
+        <div class="food-info">
+          <h3>老婆饼</h3>
+          <p>酥皮包裹甜馅，传统中式点心</p>
+          <div class="food-tags">
+            <span>点心</span>
+            <span>传统</span>
+          </div>
+          <div class="food-recommend">推荐：奇华饼家</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食11.jpg" alt="虾饺烧卖" class="food-img">
+        <div class="food-info">
+          <h3>虾饺烧卖</h3>
+          <p>广式点心精华，鲜虾馅鲜美多汁</p>
+          <div class="food-tags">
+            <span>点心</span>
+            <span>经典</span>
+          </div>
+          <div class="food-recommend">推荐：陶陶居</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card" data-city="macau">
+        <img src="澳门美食12.jpg" alt="牛杂" class="food-img">
+        <div class="food-info">
+          <h3>牛杂</h3>
+          <p>牛肚牛肺牛肠熬煮，浓郁汤底配萝卜</p>
+          <div class="food-tags">
+            <span>小吃</span>
+            <span>必吃</span>
+          </div>
+          <div class="food-recommend">推荐：官也街牛杂</div>
+          <div class="food-check">
+            <button class="check-good" data-status="unchecked">✅ 好吃</button>
+            <button class="check-bad" data-status="unchecked">❌ 一般</button>
+          </div>
+          <div class="food-actions">
+            <button class="favorite-btn">❤️ 收藏</button>
+            <button class="plan-btn">🍽️ 准备去吃</button>
+            <button class="review-btn">💬 写评价</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+  <!-- 购物页面 -->
+  <section id="shopping" class="tab-content">
+    <div class="shopping-header">
+      <h2>🛍️ 购物攻略</h2>
+      <p>三地必买特产与购物指南</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="guangzhou">广州</button>
+      <button class="filter-btn" data-filter="zhuhai">珠海</button>
+      <button class="filter-btn" data-filter="macau">澳门</button>
+    </div>
+
+    <div class="shopping-grid">
+      <!-- 广州购物 -->
+      <div class="shopping-card" data-city="guangzhou">
+        <div class="shopping-icon">🏪</div>
+        <div class="shopping-info">
+          <h3>天河城</h3>
+          <p>广州最大的购物中心之一，品牌齐全，吃喝玩乐一站式</p>
+          <div class="shopping-tags">
+            <span>商场</span>
+            <span>奢侈品</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：天河区天河路208号</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：化妆品、服装、电子产品</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-card" data-city="guangzhou">
+        <div class="shopping-icon">🛒</div>
+        <div class="shopping-info">
+          <h3>北京路步行街</h3>
+          <p>千年古道，老字号云集，适合买特产和小吃</p>
+          <div class="shopping-tags">
+            <span>步行街</span>
+            <span>特产</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：越秀区北京路</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：鸡仔饼、杏仁饼、陈皮</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-card" data-city="guangzhou">
+        <div class="shopping-icon">🏮</div>
+        <div class="shopping-info">
+          <h3>上下九步行街</h3>
+          <p>西关风情街，传统与现代融合，美食购物两不误</p>
+          <div class="shopping-tags">
+            <span>步行街</span>
+            <span>美食</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：荔湾区上下九路</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：莲香楼点心、陶陶居饼食</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 珠海购物 -->
+      <div class="shopping-card" data-city="zhuhai">
+        <div class="shopping-icon">🌊</div>
+        <div class="shopping-info">
+          <h3>华发商都</h3>
+          <p>珠海最大商业综合体，高端品牌汇聚</p>
+          <div class="shopping-tags">
+            <span>商场</span>
+            <span>高端</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：香洲区珠海大道8号</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：国际品牌、餐饮娱乐</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-card" data-city="zhuhai">
+        <div class="shopping-icon">🦐</div>
+        <div class="shopping-info">
+          <h3>湾仔海鲜街</h3>
+          <p>新鲜海鲜市场，可以现买现加工</p>
+          <div class="shopping-tags">
+            <span>市场</span>
+            <span>海鲜</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：香洲区湾仔海鲜街</p>
+            <p>⏰ 营业时间：07:00-20:00</p>
+            <p>💳 推荐：各种海鲜干货、横琴蚝</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 澳门购物 -->
+      <div class="shopping-card" data-city="macau">
+        <div class="shopping-icon">🎰</div>
+        <div class="shopping-info">
+          <h3>威尼斯人购物中心</h3>
+          <p>仿威尼斯水城设计，免税购物天堂</p>
+          <div class="shopping-tags">
+            <span>商场</span>
+            <span>免税</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：氹仔望德圣母湾大马路</p>
+            <p>⏰ 营业时间：10:00-23:00</p>
+            <p>💳 推荐：奢侈品、化妆品、手表</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-card" data-city="macau">
+        <div class="shopping-icon">🏪</div>
+        <div class="shopping-info">
+          <h3>官也街</h3>
+          <p>澳门特色手信街，老字号云集</p>
+          <div class="shopping-tags">
+            <span>步行街</span>
+            <span>手信</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：氹仔官也街</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：杏仁饼、蛋卷、猪肉干</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-card" data-city="macau">
+        <div class="shopping-icon">🛍️</div>
+        <div class="shopping-info">
+          <h3>新马路购物区</h3>
+          <p>澳门半岛核心商业区，购物美食一条街</p>
+          <div class="shopping-tags">
+            <span>商圈</span>
+            <span>综合</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：澳门半岛新马路</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：钜记手信、化妆品、珠宝</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-card" data-city="macau">
+        <div class="shopping-icon">🍪</div>
+        <div class="shopping-info">
+          <h3>钜记手信</h3>
+          <p>澳门最有名的手信连锁店，送礼首选</p>
+          <div class="shopping-tags">
+            <span>手信</span>
+            <span>连锁</span>
+          </div>
+          <div class="shopping-detail">
+            <p>📍 地址：多处分店</p>
+            <p>⏰ 营业时间：10:00-22:00</p>
+            <p>💳 推荐：杏仁饼、凤凰卷、猪肉干</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 必买清单 -->
+    <div class="must-buy-section">
+      <h3>📦 必买清单</h3>
+      <div class="must-buy-grid">
+        <div class="must-buy-item">
+          <span class="item-icon">🍪</span>
+          <span class="item-name">杏仁饼</span>
+          <span class="item-origin">澳门</span>
+        </div>
+        <div class="must-buy-item">
+          <span class="item-icon">🥓</span>
+          <span class="item-name">猪肉干</span>
+          <span class="item-origin">澳门</span>
+        </div>
+        <div class="must-buy-item">
+          <span class="item-icon">🥚</span>
+          <span class="item-name">凤凰卷</span>
+          <span class="item-origin">澳门</span>
+        </div>
+        <div class="must-buy-item">
+          <span class="item-icon">🍊</span>
+          <span class="item-name">陈皮</span>
+          <span class="item-origin">广州</span>
+        </div>
+        <div class="must-buy-item">
+          <span class="item-icon">🥞</span>
+          <span class="item-name">鸡仔饼</span>
+          <span class="item-origin">广州</span>
+        </div>
+        <div class="must-buy-item">
+          <span class="item-icon">🦐</span>
+          <span class="item-name">海鲜干货</span>
+          <span class="item-origin">珠海</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 旅行日记 -->
+  <section id="diary" class="tab-content">
+    <div class="diary-header">
+      <h2>📔 旅行日记</h2>
+      <p>记录旅行中的美好瞬间</p>
+    </div>
+
+    <div class="diary-input">
+      <textarea placeholder="写下今天的旅行感受..."></textarea>
+      <div class="diary-images-preview" id="diaryImagesPreview"></div>
+      <div class="diary-actions">
+        <input type="file" id="diaryPhotoInput" accept="image/*" multiple hidden>
+        <button class="diary-btn" id="addPhotoBtn">📷 添加照片</button>
+        <button class="diary-btn primary" id="saveDiaryBtn">✏️ 保存日记</button>
+      </div>
+    </div>
+
+    <div class="diary-list" id="diaryList">
+      <div class="empty-state">
+        <div class="empty-icon">📝</div>
+        <p>还没有日记</p>
+        <p class="empty-hint">写下你的旅行感受吧</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部浮动按钮 -->
+  <div class="float-btn" id="scrollTop">
+    <span>⬆️</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
